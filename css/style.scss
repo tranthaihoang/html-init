@@ -1,4 +1,9 @@
-// =============== init ===============
+/*
+* common
+* =========================================
+*/
+
+// alias BEM
 /// @alias element
 @mixin e($element) {
   &__#{$element} {
@@ -13,73 +18,14 @@
   }
 }
 
-@mixin d-flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// reponsive
+$breakpoints: (
+  'pc': 'screen and (min-width: 769px)',
+  'sp': 'screen and (min-width: 321px)'
+) !default;
 
-@mixin reset-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+@mixin mq($breakpoint: pc) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
 }
-
-.box-center {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.d-block {
-  display: block;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.justify-content-space {
-  justify-content: space-between;
-}
-
-.justify-content-start {
-  justify-content: flex-start;
-}
-
-.justify-content-end {
-  justify-content: flex-end;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.align-items-start {
-  align-items: flex-start;
-}
-
-.align-items-end {
-  align-items: flex-end;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-// =============== style custom ===============
